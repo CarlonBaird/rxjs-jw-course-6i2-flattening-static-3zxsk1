@@ -9,7 +9,7 @@ const source$ = new Observable((subscriber) => {
 console.log('App has started');
 source$
   .pipe(
-    //
+    //concatMap generates a new observable
     concatMap((value) => of(1, 2))
   )
   .subscribe((value) => console.log(value));
