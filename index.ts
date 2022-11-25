@@ -1,5 +1,5 @@
 import { Observable, of } from 'rxjs';
-import { concatMap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 
 //source observabale
 const source$ = new Observable((subscriber) => {
@@ -10,6 +10,7 @@ const source$ = new Observable((subscriber) => {
 console.log('App has started');
 source$
   .pipe(
+    tap((value) => console.log(value)),
     //concatMap generates a new observable: inner observable
     concatMap((value) => of(1, 2))
   )
